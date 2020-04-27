@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "react-bulma-components": "3.2.0"
+  }
+}
