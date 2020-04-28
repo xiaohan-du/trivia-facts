@@ -1,0 +1,6 @@
+#nav-toggle-state {
+  display: none;
+  &:checked ~ .navbar-menu {
+    display: block;
+  }
+}
