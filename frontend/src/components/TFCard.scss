@@ -1,4 +1,10 @@
 .TFCard {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px;
+
   &__content {
     height: 40%;
     display: flex;
@@ -6,17 +12,10 @@
     align-content: center;
     flex-direction: column;
   }
+  
   &__footer {
     height: 40%;
   }
-}
-
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
-  perspective: 1000px;
 
   &-inner {
     position: relative;

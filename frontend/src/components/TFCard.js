@@ -6,16 +6,14 @@ class TFCard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.flipCardX = this.flipCardX.bind(this);
-        this.flipCardY = this.flipCardY.bind(this);
         this.cardInner = React.createRef();
     }
 
-    flipCardY() {
+    flipCardY = _ => {
         this.cardInner.current.style.transform = 'rotateY(180deg)';
     }
 
-    flipCardX() {
+    flipCardX = _ => {
         this.cardInner.current.style.transform = 'rotateY(360deg)';
     }
 
@@ -23,12 +21,12 @@ class TFCard extends React.Component {
         return (
 
             <div className="column is-narrow">
-                <Card>
-                    <div className="flip-card">
-                        <div className="flip-card-inner" ref={this.cardInner}>
-                            <div className="flip-card-front">
+                <Card data-category={this.props.Category}>
+                    <div className="TFCard">
+                        <div className="TFCard-inner" ref={this.cardInner}>
+                            <div className="TFCard-front">
                                 <Card.Header>
-                                    <Card.Header.Title data-category={this.props.Category}>
+                                    <Card.Header.Title>
                                         {this.props.Category}
                                     </Card.Header.Title>
                                 </Card.Header>
@@ -41,7 +39,7 @@ class TFCard extends React.Component {
                                     </Card.Footer.Item>
                                 </Card.Footer>
                             </div>
-                            <div className="flip-card-back">
+                            <div className="TFCard-back">
                                 <Card.Header>
                                     <Card.Header.Title>{this.props.Category}</Card.Header.Title>
                                 </Card.Header>
