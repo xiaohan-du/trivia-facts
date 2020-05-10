@@ -61,7 +61,9 @@ class App extends React.Component {
         selectedFacts.push(this.state.facts[i]);
       };
     };
-    this.state.selectedFacts = selectedFacts;
+    this.setState({
+      selectedFacts: selectedFacts
+    })
   }
 
   renderCard = ({ id, Category, Question, Answer }) => {
