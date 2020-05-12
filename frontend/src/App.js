@@ -2,7 +2,6 @@ import React from 'react';
 import TFCard from './components/TFCard';
 import TFNavbar from './components/TFNavbar';
 import FetchData from './FetchData';
-import { Button } from 'react-bulma-components';
 import './App.scss';
 
 class App extends React.Component {
@@ -18,7 +17,6 @@ class App extends React.Component {
       isHideAll: 'Hide All'
     };
     this.showAllCards = this.showAllCards.bind(this);
-    this.showFilteredCards = this.showFilteredCards.bind(this);
     this.renderFacts = this.renderFacts.bind(this);
     this.renderFilteredFacts = this.renderFilteredFacts.bind(this);
   }
@@ -34,15 +32,6 @@ class App extends React.Component {
     })
   }
 
-  showFilteredCards() {
-    
-    this.setState({
-      showAllCards: false,
-      showFilteredCards: true
-    });
-    this.renderFilteredFacts();
-  }
-
   getFacts() {
     FetchData.getFacts().then(response => {
       let category = [];
@@ -53,8 +42,8 @@ class App extends React.Component {
     })
   }
 
-  renderFilteredFacts() {
-    const category = 'Geography';
+  renderFilteredFacts(item) {
+    const category = item;
     let selectedFacts = [];
     for (var i = 0; i < this.state.facts.length; i++) {
       if (this.state.facts[i].Category === category) {
@@ -62,8 +51,10 @@ class App extends React.Component {
       };
     };
     this.setState({
-      selectedFacts: selectedFacts
-    })
+      selectedFacts: selectedFacts,
+      showAllCards: false,
+      showFilteredCards: true
+    })    
   }
 
   renderCard = ({ id, Category, Question, Answer }) => {
@@ -85,10 +76,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TFNavbar uniqueCategory={this.state.uniqueCategory} />
-
-        <Button onClick={this.showAllCards}>Show All Cards</Button>
-        <Button onClick={this.showFilteredCards}>Show Filtered Cards</Button>
+        <TFNavbar uniqueCategory={this.state.uniqueCategory} showAllCards={this.showAllCards} renderFilteredFacts={this.renderFilteredFacts}/>
 
         {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
         {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}

@@ -2,17 +2,21 @@ import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar } from 'react-bulma-components';
 import './TFNavbar.scss';
+import {Button} from 'react-bulma-components';
 
 class TFNavbar extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            currentCategory: null
+        }
         this.renderItem = this.renderItem.bind(this);
     }
 
     renderItem(item, id) {
         return (
             <div key={id} data-category={item}>
-                <Navbar.Item onClick={() => this.props.findCategory()}>
+                <Navbar.Item onClick={() => this.props.renderFilteredFacts(item)}>
                     {item}
                 </Navbar.Item>
             </div>
@@ -40,6 +44,7 @@ class TFNavbar extends React.Component {
                 <Navbar.Menu >
                     <Navbar.Container>
                         {this.props.uniqueCategory.map(this.renderItem)}
+                        <Button onClick={this.props.showAllCards}>Show All Cards</Button>
                     </Navbar.Container>
                 </Navbar.Menu>
             </Navbar>
