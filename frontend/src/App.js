@@ -2,6 +2,9 @@ import React from 'react';
 import TFCard from './components/TFCard';
 import TFNavbar from './components/TFNavbar';
 import FetchData from './FetchData';
+import 'react-bulma-components/dist/react-bulma-components.min.css';
+import { Columns } from 'react-bulma-components';
+
 import './App.scss';
 
 class App extends React.Component {
@@ -11,10 +14,8 @@ class App extends React.Component {
       facts: [],
       uniqueCategory: [],
       selectedFacts: [],
-      showAllCards: false,
-      showFilteredCards: false,
-      isShowAll: 'Show All',
-      isHideAll: 'Hide All'
+      showAllCards: true,
+      showFilteredCards: false
     };
     this.showAllCards = this.showAllCards.bind(this);
     this.renderFacts = this.renderFacts.bind(this);
@@ -26,7 +27,7 @@ class App extends React.Component {
   }
 
   showAllCards() {
-    this.setState({ 
+    this.setState({
       showAllCards: true,
       showFilteredCards: false
     })
@@ -43,10 +44,9 @@ class App extends React.Component {
   }
 
   renderFilteredFacts(item) {
-    const category = item;
     let selectedFacts = [];
     for (var i = 0; i < this.state.facts.length; i++) {
-      if (this.state.facts[i].Category === category) {
+      if (this.state.facts[i].Category === item) {
         selectedFacts.push(this.state.facts[i]);
       };
     };
@@ -54,29 +54,31 @@ class App extends React.Component {
       selectedFacts: selectedFacts,
       showAllCards: false,
       showFilteredCards: true
-    })    
+    })
   }
 
   renderCard = ({ id, Category, Question, Answer }) => {
     return (
       <div key={id}>
-        <TFCard Category={Category} Question={Question} Answer={Answer} />
+        <Columns.Column className="is-narrow">
+          <TFCard Category={Category} Question={Question} Answer={Answer} />
+        </Columns.Column>
       </div>
     )
   }
 
   renderFacts(facts) {
     return (
-      < div className="columns is-mobile is-multiline is-centered" >
+      < Columns className="is-mobile is-multiline is-centered" >
         {facts.map(this.renderCard)}
-      </div >
+      </Columns >
     )
   }
 
   render() {
     return (
       <div>
-        <TFNavbar uniqueCategory={this.state.uniqueCategory} showAllCards={this.showAllCards} renderFilteredFacts={this.renderFilteredFacts}/>
+        <TFNavbar uniqueCategory={this.state.uniqueCategory} showAllCards={this.showAllCards} renderFilteredFacts={this.renderFilteredFacts} />
 
         {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
         {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}

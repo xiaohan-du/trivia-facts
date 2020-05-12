@@ -1,8 +1,7 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Navbar } from 'react-bulma-components';
+import { Navbar, Image } from 'react-bulma-components';
 import './TFNavbar.scss';
-import {Button} from 'react-bulma-components';
 
 class TFNavbar extends React.Component {
     constructor(props) {
@@ -15,7 +14,7 @@ class TFNavbar extends React.Component {
 
     renderItem(item, id) {
         return (
-            <div key={id} data-category={item}>
+            <div key={id}>
                 <Navbar.Item onClick={() => this.props.renderFilteredFacts(item)}>
                     {item}
                 </Navbar.Item>
@@ -25,10 +24,10 @@ class TFNavbar extends React.Component {
 
     render() {
         return (
-            <Navbar>
+            <Navbar className="is-fixed-top">
                 <Navbar.Brand>
-                    <Navbar.Item renderAs="a" href="#">
-                        <img src={require('../image/logo.png')} alt="Trivia-logo" width="112" height="28" />
+                    <Navbar.Item renderAs="a" href="#" style={{ width: 150, height: 40 }}>
+                        <Image src={require('../image/logo.png')} alt="Trivia-logo" />
                     </Navbar.Item>
                     <label role="button"
                         className="navbar-burger burger"
@@ -44,7 +43,9 @@ class TFNavbar extends React.Component {
                 <Navbar.Menu >
                     <Navbar.Container>
                         {this.props.uniqueCategory.map(this.renderItem)}
-                        <Button onClick={this.props.showAllCards}>Show All Cards</Button>
+                        <div>
+                            <Navbar.Item onClick={this.props.showAllCards}>Show All Cards</Navbar.Item>
+                        </div>
                     </Navbar.Container>
                 </Navbar.Menu>
             </Navbar>
