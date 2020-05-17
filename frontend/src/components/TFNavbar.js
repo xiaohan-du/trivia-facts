@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Navbar, Image } from 'react-bulma-components';
+import { Navbar, Image, Button, Dropdown } from 'react-bulma-components';
 import './TFNavbar.scss';
 
 class TFNavbar extends React.Component {
@@ -14,11 +14,11 @@ class TFNavbar extends React.Component {
 
     renderItem(item, id) {
         return (
-            <div key={id}>
-                <Navbar.Item onClick={() => this.props.renderFilteredFacts(item)}>
+            <Dropdown.Item value="item" key={id} >
+                <div onClick={() => this.props.renderFilteredFacts(item)}>
                     {item}
-                </Navbar.Item>
-            </div>
+                </div>
+            </Dropdown.Item>
         )
     }
 
@@ -42,10 +42,18 @@ class TFNavbar extends React.Component {
                 <input type="checkbox" id="nav-toggle-state" />
                 <Navbar.Menu >
                     <Navbar.Container>
-                        {this.props.uniqueCategory.map(this.renderItem)}
-                        <div>
-                            <Navbar.Item onClick={this.props.showAllCards}>Show All Cards</Navbar.Item>
-                        </div>
+                        <Navbar.Item>
+                            <Dropdown hoverable>
+                                {this.props.uniqueCategory.map(this.renderItem)}
+                            </Dropdown>
+                        </Navbar.Item>
+
+                        <Navbar.Item>
+                            <Button className="is-dark" onClick={this.props.showAllCards}>Show All</Button>
+                        </Navbar.Item>
+                        <Navbar.Item>
+                            <Button className="is-danger">Mix Up</Button>
+                        </Navbar.Item>
                     </Navbar.Container>
                 </Navbar.Menu>
             </Navbar>

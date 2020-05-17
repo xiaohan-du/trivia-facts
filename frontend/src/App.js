@@ -3,7 +3,7 @@ import TFCard from './components/TFCard';
 import TFNavbar from './components/TFNavbar';
 import FetchData from './FetchData';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Columns } from 'react-bulma-components';
+import { Columns, Section } from 'react-bulma-components';
 
 import './App.scss';
 
@@ -40,7 +40,7 @@ class App extends React.Component {
         category.push(element.Category)
       })
       this.setState({ facts: response.data, uniqueCategory: [...new Set(category)] });
-    })
+    });
   }
 
   renderFilteredFacts(item) {
@@ -79,9 +79,10 @@ class App extends React.Component {
     return (
       <div>
         <TFNavbar uniqueCategory={this.state.uniqueCategory} showAllCards={this.showAllCards} renderFilteredFacts={this.renderFilteredFacts} />
-
-        {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
-        {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
+        <Section className="hero is-fullheight-with-navbar">
+          {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
+          {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
+        </Section>
       </div>
     )
   }
