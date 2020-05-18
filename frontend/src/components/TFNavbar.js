@@ -44,15 +44,15 @@ class TFNavbar extends React.Component {
                     <Navbar.Container>
                         <Navbar.Item>
                             <Dropdown hoverable>
+                                <Dropdown.Item value="item">
+                                    <div onClick={this.props.showAllCards}>All Categories</div>
+                                </Dropdown.Item>
+                                <Dropdown.Divider />
                                 {this.props.uniqueCategory.map(this.renderItem)}
                             </Dropdown>
                         </Navbar.Item>
-
                         <Navbar.Item>
-                            <Button className="is-dark" onClick={this.props.showAllCards}>Show All</Button>
-                        </Navbar.Item>
-                        <Navbar.Item>
-                            <Button className="is-danger">Mix Up</Button>
+                            <Button className="is-danger" onClick={this.props.mixCards}>Shuffle</Button>
                         </Navbar.Item>
                     </Navbar.Container>
                 </Navbar.Menu>

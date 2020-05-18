@@ -20,6 +20,7 @@ class App extends React.Component {
     this.showAllCards = this.showAllCards.bind(this);
     this.renderFacts = this.renderFacts.bind(this);
     this.renderFilteredFacts = this.renderFilteredFacts.bind(this);
+    this.mixCards = this.mixCards.bind(this);
   }
 
   componentDidMount() {
@@ -57,6 +58,24 @@ class App extends React.Component {
     })
   }
 
+  shuffle(a) {
+    let j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
+  }
+
+  mixCards() {
+    debugger;
+    this.setState({
+      facts: this.shuffle(this.state.facts)
+    })
+  }
+
   renderCard = ({ id, Category, Question, Answer }) => {
     return (
       <div key={id}>
@@ -78,7 +97,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TFNavbar uniqueCategory={this.state.uniqueCategory} showAllCards={this.showAllCards} renderFilteredFacts={this.renderFilteredFacts} />
+        <TFNavbar
+          uniqueCategory={this.state.uniqueCategory}
+          showAllCards={this.showAllCards}
+          mixCards={this.mixCards}
+          renderFilteredFacts={this.renderFilteredFacts} />
         <Section className="hero is-fullheight-with-navbar">
           {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
           {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
