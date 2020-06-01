@@ -3,7 +3,7 @@ import TFCard from './components/TFCard';
 import TFNavbar from './components/TFNavbar';
 import FetchData from './FetchData';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Columns, Section } from 'react-bulma-components';
+import { Columns, Section, Tile, Box, Heading, Image } from 'react-bulma-components';
 
 import './App.scss';
 
@@ -15,7 +15,9 @@ class App extends React.Component {
       uniqueCategory: [],
       selectedFacts: [],
       showAllCards: true,
-      showFilteredCards: false
+      showFilteredCards: false,
+      isLoaded: false,
+      items: []
     };
     this.showAllCards = this.showAllCards.bind(this);
     this.renderFacts = this.renderFacts.bind(this);
@@ -44,6 +46,19 @@ class App extends React.Component {
     });
   }
 
+  fetchCOVID19() {
+    fetch("https://api.covid19api.com/live/country/united-kingdom")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          isLoaded: true,
+          items: result.items  
+        })
+      }
+    )
+  }
+
   renderFilteredFacts(item) {
     let selectedFacts = [];
     for (var i = 0; i < this.state.facts.length; i++) {
@@ -70,10 +85,9 @@ class App extends React.Component {
   }
 
   mixCards() {
-    debugger;
-    this.setState({
-      facts: this.shuffle(this.state.facts)
-    })
+    this.state.showAllCards ?
+      this.setState({ facts: this.shuffle(this.state.facts) }) :
+      this.setState({ selectedFacts: this.shuffle(this.state.selectedFacts) });
   }
 
   renderCard = ({ id, Category, Question, Answer }) => {
@@ -97,14 +111,54 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <TFNavbar
-          uniqueCategory={this.state.uniqueCategory}
-          showAllCards={this.showAllCards}
-          mixCards={this.mixCards}
-          renderFilteredFacts={this.renderFilteredFacts} />
-        <Section className="hero is-fullheight-with-navbar">
-          {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
-          {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
+        <Section className="hero is-full-height-with-navbar">
+          <TFNavbar
+            uniqueCategory={this.state.uniqueCategory}
+            showAllCards={this.showAllCards}
+            mixCards={this.mixCards}
+            renderFilteredFacts={this.renderFilteredFacts} />
+          <Box>
+            <Tile kind="ancestor">
+              <Tile size={8} vertical>
+                <Tile>
+                  <Tile kind="parent" vertical>
+                    <Tile renderAs="article" kind="child" notification color="primary" >
+                      <Heading>Vertical...</Heading>
+                      <Heading subtitle>Top tile</Heading>
+                    </Tile>
+                    <Tile renderAs="article" kind="child" notification color="warning">
+                      <Heading>Tiles...</Heading>
+                      <Heading subtitle>Bottom Tile...</Heading>
+                    </Tile>
+                  </Tile>
+                  <Tile kind="parent">
+                    <Tile renderAs="article" kind="child" notification color="info">
+                      <Heading>Middle Tile...</Heading>
+                      <Heading subtitle>With image Tile...</Heading>
+                      <Image size="4by3" src="http://bulma.io/images/placeholders/640x480.png" />
+                    </Tile>
+                  </Tile>
+                </Tile>
+                <Tile kind="parent">
+                  <Tile renderAs="article" kind="child" notification color="danger">
+                    <Heading>Wide tile</Heading>
+                    <Heading subtitle>Aligned with the right tile</Heading>
+                    <div className="content" />
+                  </Tile>
+                </Tile>
+              </Tile>
+              <Tile kind="parent" style={{overflow: "scroll", height: "570px"}}>
+                <Tile renderAs="article" kind="child" notification color="success">
+                  <div className="content">
+                    <Heading>Trivia facts</Heading>
+                    <div className="content" />
+                    {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
+                    {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
+                  </div>
+                </Tile>
+              </Tile>
+            </Tile>
+          </Box>
         </Section>
       </div>
     )

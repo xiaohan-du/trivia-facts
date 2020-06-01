@@ -6,7 +6,11 @@
 }
 
 @media screen and (min-width: 768px) {
-  .navbar-item, .navbar-link {
+  .navbar, .navbar-end, .navbar-menu, .navbar-start {
+    align-items: stretch;
     display: flex;
+  }
+  .navbar-burger {
+    display: none;
   }
 }
