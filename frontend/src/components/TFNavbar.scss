@@ -1,3 +1,23 @@
+@import "../styles/_mixins.scss";
+
+.TFNavbar {
+  &__logo {
+    max-width: 150px;
+    max-height: 40px;
+    & img {
+      max-height: 100%;
+    }
+  }
+}
+
+.navbar {
+  &-item {
+    & button {
+      font-size: 1.6rem;
+    }
+  }
+}
+
 #nav-toggle-state {
   display: none;
   &:checked ~ .navbar-menu {
@@ -5,8 +25,11 @@
   }
 }
 
-@media screen and (min-width: 768px) {
-  .navbar, .navbar-end, .navbar-menu, .navbar-start {
+@include for-phone-and-tablet-portrait {
+  .navbar,
+  .navbar-end,
+  .navbar-menu,
+  .navbar-start {
     align-items: stretch;
     display: flex;
   }

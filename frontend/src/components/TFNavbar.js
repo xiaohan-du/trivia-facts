@@ -2,6 +2,7 @@ import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar, Image, Button, Dropdown } from 'react-bulma-components';
 import './TFNavbar.scss';
+import '../styles/button.scss';
 
 class TFNavbar extends React.Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class TFNavbar extends React.Component {
         return (
             <Navbar className="is-fixed-top">
                 <Navbar.Brand>
-                    <Navbar.Item renderAs="a" href="#" style={{ width: 150, height: 40 }}>
+                    <Navbar.Item renderAs="a" href="#" className="TFNavbar__logo">
                         <Image src={require('../image/logo.png')} alt="Trivia-logo" />
                     </Navbar.Item>
                     <label role="button"

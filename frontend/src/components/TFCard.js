@@ -19,35 +19,33 @@ class TFCard extends React.Component {
 
     render() {
         return (
-            <Card>
-                <div className="TFCard">
-                    <div className="TFCard-inner" ref={this.cardInner}>
-                        <div className="TFCard-front">
-                            <Card.Header>
-                                <Card.Header.Title>
-                                    {this.props.Category}
-                                </Card.Header.Title>
-                            </Card.Header>
-                            <Card.Content className="TFCard__content">
-                                {this.props.Question}
-                            </Card.Content>
-                            <Card.Footer className="TFCard__footer">
-                                <Card.Footer.Item>
-                                    <Button onClick={this.flipCardY}>Answer</Button>
-                                </Card.Footer.Item>
-                            </Card.Footer>
-                        </div>
-                        <div className="TFCard-back">
-                            <Card.Header>
-                                <Card.Header.Title>{this.props.Category}</Card.Header.Title>
-                            </Card.Header>
-                            <Card.Content className="TFCard__content">{this.props.Answer}</Card.Content>
-                            <Card.Footer className="TFCard__footer">
-                                <Card.Footer.Item onClick={this.flipCardX}>
-                                    <Button onClick={this.flipCardX}>Back</Button>
-                                </Card.Footer.Item>
-                            </Card.Footer>
-                        </div>
+            <Card className="TFCard">
+                <div className="TFCard-inner" ref={this.cardInner}>
+                    <div className="TFCard-front">
+                        <Card.Header>
+                            <Card.Header.Title>
+                                {this.props.Category}
+                            </Card.Header.Title>
+                        </Card.Header>
+                        <Card.Content className="TFCard__content">
+                            {this.props.Question}
+                        </Card.Content>
+                        <Card.Footer className="TFCard__footer">
+                            <Card.Footer.Item>
+                                <Button onClick={this.flipCardY}>Answer</Button>
+                            </Card.Footer.Item>
+                        </Card.Footer>
+                    </div>
+                    <div className="TFCard-back">
+                        <Card.Header>
+                            <Card.Header.Title>{this.props.Category}</Card.Header.Title>
+                        </Card.Header>
+                        <Card.Content className="TFCard__content">{this.props.Answer}</Card.Content>
+                        <Card.Footer className="TFCard__footer">
+                            <Card.Footer.Item onClick={this.flipCardX}>
+                                <Button onClick={this.flipCardX}>Back</Button>
+                            </Card.Footer.Item>
+                        </Card.Footer>
                     </div>
                 </div>
             </Card>

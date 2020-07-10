@@ -1,12 +1,13 @@
 .TFCard {
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
+  background-color: white;
+  min-width: 300px;
+  height: 230px;
   border: 1px solid #f1f1f1;
   perspective: 1000px;
+  border-radius: 5px;
 
   &__content {
-    height: 40%;
+    height: 50%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -14,7 +15,7 @@
   }
   
   &__footer {
-    height: 40%;
+    height: 30%;
   }
 
   &-inner {
@@ -33,8 +34,6 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     color: black;
-    background-color: rgb(167, 220, 225);
-    background-image: linear-gradient(108.1deg, rgb(167, 220, 225) 11.2%, rgb(217, 239, 242) 88.9%);
   }
 
   &-back {
