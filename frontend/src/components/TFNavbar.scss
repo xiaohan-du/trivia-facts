@@ -10,6 +10,12 @@
   }
 }
 
+.dropdown {
+  &-item {
+    font-size: 1.6rem;
+  }
+}
+
 .navbar {
   &-item {
     & button {

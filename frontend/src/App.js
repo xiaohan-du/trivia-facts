@@ -1,7 +1,6 @@
 import React from 'react';
 import TFCard from './components/TFCard';
 import TFNavbar from './components/TFNavbar';
-import TFTile from './components/TFTile';
 import FetchFacts from './FetchFacts';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Columns, Section, Tile, Box, Heading, Image } from 'react-bulma-components';
@@ -28,7 +27,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getFacts();
-    /* this.getWeather(); */
   }
 
   showAllCards() {
@@ -119,20 +117,31 @@ class App extends React.Component {
             showAllCards={this.showAllCards}
             mixCards={this.mixCards}
             renderFilteredFacts={this.renderFilteredFacts} />
-        </Section>
-        <Section>
           <Box>
             <Tile kind="ancestor">
-              <Tile kind="parent" vertical>
-                <TFTile showAllCards={this.showAllCards}
-                  renderFacts={this.renderFacts}
-                  facts={this.state.facts}
-                  selectedFacts={this.state.selectedFacts} />
-                <Tile renderAs="article" kind="child" notification color="warning">
-                  <Heading>Tiles...</Heading>
-                  <Heading subtitle>Bottom Tile...</Heading>
+              <Tile size={12} vertical>
+                <Tile>
+                  <Tile kind="parent" vertical>
+                    <Tile kind="parent">
+                      <Tile renderAs="article" kind="child" notification color="success">
+                        <div className="content">
+                          <Heading>Trivia facts</Heading>
+                          <div className="content" />
+                          {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
+                          {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
+                        </div>
+                      </Tile>
+                    </Tile>
+                    <Tile renderAs="article" kind="child" notification color="warning">
+                      <Heading>Tiles...</Heading>
+                      <Heading subtitle>Bottom Tile...</Heading>
+                    </Tile>
+                  </Tile>
+                  
                 </Tile>
+                
               </Tile>
+
             </Tile>
           </Box>
         </Section>
