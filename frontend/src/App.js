@@ -1,12 +1,8 @@
 import React from 'react';
 import TFCard from './components/TFCard';
 import TFNavbar from './components/TFNavbar';
-import TFWeekContainer from './components/TFWeekContainer';
 import TFTile from './components/TFTile';
 import FetchFacts from './FetchFacts';
-import FetchWeather from './FetchWeather';
-import FetchAPI from './FetchAPI';
-import apiConfig from './apiKeys';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Columns, Section, Tile, Box, Heading, Image } from 'react-bulma-components';
 
@@ -32,7 +28,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getFacts();
-    this.getWeather();
+    /* this.getWeather(); */
   }
 
   showAllCards() {
@@ -40,10 +36,6 @@ class App extends React.Component {
       showAllCards: true,
       showFilteredCards: false
     })
-  }
-
-  getWeather() {
-    FetchWeather.getWeather();
   }
 
   getFacts() {
