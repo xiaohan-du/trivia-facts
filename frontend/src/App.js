@@ -117,33 +117,32 @@ class App extends React.Component {
             showAllCards={this.showAllCards}
             mixCards={this.mixCards}
             renderFilteredFacts={this.renderFilteredFacts} />
-          <Box>
-            <Tile kind="ancestor">
-              <Tile size={12} vertical>
-                <Tile>
-                  <Tile kind="parent" vertical>
-                    <Tile kind="parent">
-                      <Tile renderAs="article" kind="child" notification color="success">
-                        <div className="content">
-                          <Heading>Trivia facts</Heading>
-                          <div className="content" />
-                          {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
-                          {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
-                        </div>
+          <Section>
+            <Box>
+              <Tile kind="ancestor">
+                <Tile size={12} vertical>
+                  <Tile>
+                    <Tile kind="parent" vertical>
+                      <Tile kind="parent">
+                        <Tile renderAs="article" kind="child" notification color="success">
+                          <div className="content">
+                            <Heading>Trivia facts</Heading>
+                            <div className="content" />
+                            {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
+                            {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
+                          </div>
+                        </Tile>
+                      </Tile>
+                      <Tile renderAs="article" kind="child" notification color="warning">
+                        <Heading>Tiles...</Heading>
+                        <Heading subtitle>Bottom Tile...</Heading>
                       </Tile>
                     </Tile>
-                    <Tile renderAs="article" kind="child" notification color="warning">
-                      <Heading>Tiles...</Heading>
-                      <Heading subtitle>Bottom Tile...</Heading>
-                    </Tile>
                   </Tile>
-                  
                 </Tile>
-                
               </Tile>
-
-            </Tile>
-          </Box>
+            </Box>
+          </Section>
         </Section>
       </div>
     )
