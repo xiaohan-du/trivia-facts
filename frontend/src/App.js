@@ -6,6 +6,7 @@ import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Columns, Section, Tile, Box, Heading, Image } from 'react-bulma-components';
 
 import './App.scss';
+import TFTile from './components/TFTile';
 
 class App extends React.Component {
   constructor(props) {
@@ -124,14 +125,12 @@ class App extends React.Component {
                   <Tile>
                     <Tile kind="parent" vertical>
                       <Tile kind="parent">
-                        <Tile renderAs="article" kind="child" notification color="success">
-                          <div className="content">
-                            <Heading>Trivia facts</Heading>
-                            <div className="content" />
-                            {this.state.showAllCards ? this.renderFacts(this.state.facts) : null}
-                            {this.state.showFilteredCards ? this.renderFacts(this.state.selectedFacts) : null}
-                          </div>
-                        </Tile>
+                        <TFTile showAllCards={this.state.showAllCards}
+                          renderFacts={this.renderFacts}
+                          facts={this.state.facts}
+                          showFilteredCards={this.state.showFilteredCards}
+                          selectedFacts={this.state.selectedFacts}
+                        />
                       </Tile>
                       <Tile renderAs="article" kind="child" notification color="warning">
                         <Heading>Tiles...</Heading>
