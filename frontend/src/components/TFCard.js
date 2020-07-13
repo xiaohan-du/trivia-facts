@@ -32,7 +32,7 @@ class TFCard extends React.Component {
                         </Card.Content>
                         <Card.Footer className="TFCard__footer">
                             <Card.Footer.Item>
-                                <Button onClick={this.flipCardY}>Answer</Button>
+                                <Button className="button is-success is-large" onClick={this.flipCardY}>Answer</Button>
                             </Card.Footer.Item>
                         </Card.Footer>
                     </div>
@@ -43,7 +43,7 @@ class TFCard extends React.Component {
                         <Card.Content className="TFCard__content">{this.props.Answer}</Card.Content>
                         <Card.Footer className="TFCard__footer">
                             <Card.Footer.Item onClick={this.flipCardX}>
-                                <Button onClick={this.flipCardX}>Back</Button>
+                                <Button className="button is-white is-normal" onClick={this.flipCardX}>Back</Button>
                             </Card.Footer.Item>
                         </Card.Footer>
                     </div>
