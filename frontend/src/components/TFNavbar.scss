@@ -2,8 +2,7 @@
 
 .TFNavbar {
   &__logo {
-    max-width: 150px;
-    max-height: 40px;
+    text-decoration: none !important;
     & img {
       max-height: 100%;
     }
@@ -13,6 +12,9 @@
 .dropdown {
   &-item {
     font-size: 1.6rem;
+  }
+  &-trigger {
+    display: flex;
   }
 }
 

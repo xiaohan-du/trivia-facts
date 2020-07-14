@@ -1,3 +1,8 @@
 .TFTile {
     min-height: 334px;
+    & .navbar {
+        &-item {
+            background-color: #23d160 !important;
+        }
+    }
 }
