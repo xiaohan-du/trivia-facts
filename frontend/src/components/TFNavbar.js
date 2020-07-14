@@ -1,15 +1,12 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Navbar, Image, Button, Dropdown } from 'react-bulma-components';
+import { Navbar, Button, Dropdown } from 'react-bulma-components';
 import './TFNavbar.scss';
 import '../styles/button.scss';
 
 class TFNavbar extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            currentCategory: null
-        }
         this.renderItem = this.renderItem.bind(this);
     }
 
@@ -25,11 +22,9 @@ class TFNavbar extends React.Component {
 
     render() {
         return (
-            <Navbar className="is-fixed-top">
+            <Navbar className={this.props.isFixedTop ? "is-fixed-top" : ""}>
                 <Navbar.Brand>
-                    <Navbar.Item renderAs="a" href="#" className="TFNavbar__logo">
-                        <Image src={require('../image/logo.png')} alt="Trivia-logo" />
-                    </Navbar.Item>
+                    {this.props.logo}
                     <label role="button"
                         className="navbar-burger burger"
                         aria-label="menu"
@@ -52,7 +47,7 @@ class TFNavbar extends React.Component {
                                 {this.props.uniqueCategory.map(this.renderItem)}
                             </Dropdown>
                         </Navbar.Item>
-                        <Navbar.Item>
+                        <Navbar.Item className="TFBtn__is-primary">
                             <Button className="is-danger" onClick={this.props.mixCards}>Shuffle</Button>
                         </Navbar.Item>
                     </Navbar.Container>
