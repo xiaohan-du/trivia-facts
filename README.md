@@ -1,4 +1,4 @@
-# Xinfo (Work in progress)
+# Trivia-facts (Work in progress)
 
 This is my personal Express JS (backend) + React JS (frontend) project, aiming to provide a varieties of informations to public.
 
