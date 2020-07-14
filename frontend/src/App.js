@@ -1,8 +1,8 @@
 import React from 'react';
-import TFCard from './components/TFCard';
+import TFCard from './components/trivia-facts/TFCard';
 import FetchFacts from './FetchFacts';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Columns, Section, Tile, Box, Heading } from 'react-bulma-components';
+import { Columns, Section, Tile, Box, Heading, Navbar } from 'react-bulma-components';
 
 import './App.scss';
 import TFTile from './components/TFTile';
@@ -100,6 +100,19 @@ class App extends React.Component {
     return (
       <div>
         <Section className="hero is-full-height-with-navbar">
+          <Navbar className="is-fixed-top">
+            <Navbar.Brand>
+              <Navbar.Item renderAs="a" href="#">
+                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+              </Navbar.Item>
+            </Navbar.Brand>
+            <Navbar.Menu >
+              <Navbar.Container>
+                <Navbar.Item>
+                </Navbar.Item>
+              </Navbar.Container>
+            </Navbar.Menu>
+          </Navbar>
           <Section>
             <Box>
               <Tile kind="ancestor">
