@@ -19,8 +19,8 @@ const pool = mysql.createPool({
 });
 
 pool.getConnection((err, connection) => {
-    if (err) throw err;
-    app.get('/trivia-fact', (req, res) => {
+/*     if (err) throw err;
+ */    app.get('/trivia-fact', (req, res) => {
         connection.query(SELECT_ALL_FACTS_QUERY, (err, results) => {
             if (err) {
                 return res.send(err)
