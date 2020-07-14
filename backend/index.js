@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 
 const pool = mysql.createPool({
     connectionLimit: 10,
-    host: 'localhost',
+    /* host: 'localhost', */
     user: 'root',
     password: 'myjs123@',
     database: 'trivia-facts',
@@ -37,7 +37,8 @@ pool.getConnection((err, connection) => {
 
 const SELECT_ALL_FACTS_QUERY = 'SELECT * FROM `trivia-facts`.`trivia-fact`;';
 
-app.listen(4000, () => {
-    console.log('Trivia facts SQL server listening on PORT 4000');
-});
+let port=process.env.PORT||4000;
 
+app.listen(port, () => {
+    console.log(`App running on port ${port} `);
+});
