@@ -11,7 +11,6 @@ app.get('/', (req, res) => {
 
 const pool = mysql.createPool({
     connectionLimit: 10,
-    /* host: 'localhost', */
     user: 'root',
     password: 'myjs123@',
     database: 'trivia-facts',
@@ -19,8 +18,7 @@ const pool = mysql.createPool({
 });
 
 pool.getConnection((err, connection) => {
-/*     if (err) throw err;
- */    app.get('/trivia-fact', (req, res) => {
+    app.get('/trivia-fact', (req, res) => {
         connection.query(SELECT_ALL_FACTS_QUERY, (err, results) => {
             if (err) {
                 return res.send(err)
@@ -37,7 +35,7 @@ pool.getConnection((err, connection) => {
 
 const SELECT_ALL_FACTS_QUERY = 'SELECT * FROM `trivia-facts`.`trivia-fact`;';
 
-let port=process.env.PORT||4000;
+let port = process.env.PORT || 4000;
 
 app.listen(port, () => {
     console.log(`App running on port ${port} `);
