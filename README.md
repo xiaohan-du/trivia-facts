@@ -12,7 +12,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Create local SQL table trivia-facts/trivia-fact and import backend/trivia-fact-50 or trivia-fact-200 depending on the facts size you want.
+#### Local database
+
+Create local SQL table trivia-facts/trivia-fact and import backend/trivia-fact-50 or trivia-fact-200 depending on the facts size you want, then in `index.js` use `const pool = require('./localPool');`.
+
+#### Amazon Web Services RDS
+In `index.js` use `const pool = require('./awsPool');`.
 
 ### Run
 
