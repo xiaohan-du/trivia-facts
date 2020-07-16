@@ -1,5 +1,4 @@
 {
-  "homepage": "http://xiaohan-du.github.io/trivia-facts",
   "name": "trivia-facts",
   "scripts": {
     "start": "node backend/index.js"
@@ -10,10 +9,10 @@
     "mysql": "^2.18.1",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
-    "react-bulma-components": "3.2.0"
-  },
-  "devDependencies": {
-    "gh-pages": "^3.1.0"
+    "react-bulma-components": "3.2.0",
+    "ejs": "latest",
+    "aws-sdk": "latest",
+    "body-parser": "latest"
   },
   "engines": {
     "node": "14.5.0"
