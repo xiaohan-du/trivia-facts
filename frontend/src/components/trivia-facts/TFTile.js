@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar, Tile, Heading } from 'react-bulma-components';
 import './TFTile.scss';
-import TFNavbar from './trivia-facts/TFNavbar';
+import TFNavbar from './TFNavbar';
 
 class TFTile extends React.Component {
 

@@ -3,9 +3,9 @@ import TFCard from './components/trivia-facts/TFCard';
 import FetchFacts from './FetchFacts';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Columns, Section, Tile, Box, Heading, Navbar } from 'react-bulma-components';
-
+import mainLogo from './image/astronaut-helmet.png';
 import './App.scss';
-import TFTile from './components/TFTile';
+import TFTile from './components/trivia-facts/TFTile';
 
 class App extends React.Component {
   constructor(props) {
@@ -103,7 +103,7 @@ class App extends React.Component {
           <Navbar className="is-fixed-top">
             <Navbar.Brand>
               <Navbar.Item renderAs="a" href="#">
-                <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28" />
+                <img src={mainLogo} alt="main logo"/>
               </Navbar.Item>
             </Navbar.Brand>
             <Navbar.Menu >
