@@ -16,7 +16,7 @@ class TFTile extends React.Component {
 
     render() {
         return (
-            <Tile className="TFTile" renderAs="article" kind="child" notification color="success">
+            <Tile className="TFTile" renderAs="article" kind="child" notification color="primary">
                 <div className="content">
                     <Heading>
                         <TFNavbar

@@ -1,0 +1,11 @@
+.MainNavbar {
+    &.navbar {
+        background-color: ghostwhite;
+    }
+    &-logo {
+        margin-right: 1rem;
+        & img {
+            max-height: 5.75rem;
+        }
+    }
+}
