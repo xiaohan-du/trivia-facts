@@ -1,8 +1,8 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar } from 'react-bulma-components';
+import '../main.scss';
 import './MainNavbar.scss';
-import '../styles/button.scss';
 import mainLogo from '../image/astronaut-helmet-logo.png';
 
 class MainNavbar extends React.Component {
@@ -10,7 +10,7 @@ class MainNavbar extends React.Component {
         return (
             <Navbar className="is-fixed-top MainNavbar">
                 <Navbar.Brand>
-                    <Navbar.Item className="MainNavbar-logo" renderAs="a" href="#">
+                    <Navbar.Item className="MainNavbar__logo" renderAs="a" href="#">
                         <img src={mainLogo} alt="main logo" />
                     </Navbar.Item>
                 </Navbar.Brand>
@@ -24,8 +24,8 @@ class MainNavbar extends React.Component {
                         </Navbar.Item>
                     </Navbar.Container>
                     <Navbar.Item renderAs="p" className="Site-under-construction ">
-                        🛬 Site under construction 🛫
-                        </Navbar.Item>
+                        <span role="img" aria-label="plane">🛬 Site under construction 🛫</span>
+                    </Navbar.Item>
                 </Navbar.Menu>
             </Navbar>
         )

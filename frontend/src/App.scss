@@ -13,3 +13,9 @@ body {
 .Site-under-construction {
   font-size: 3rem;
 }
+
+.Section {
+  &__navbar {
+    padding-bottom: 0;
+  }
+}

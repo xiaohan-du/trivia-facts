@@ -1,8 +1,8 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar, Button, Dropdown } from 'react-bulma-components';
+import '../../main.scss';
 import './TFNavbar.scss';
-import '../../styles/button.scss';
 
 class TFNavbar extends React.Component {
     constructor(props) {
