@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar, Tile, Heading } from 'react-bulma-components';
 import './TFTile.scss';
-import TFNavbar from './trivia-facts/TFNavbar';
+import TFNavbar from './TFNavbar';
 
 class TFTile extends React.Component {
 
@@ -16,7 +16,7 @@ class TFTile extends React.Component {
 
     render() {
         return (
-            <Tile className="TFTile" renderAs="article" kind="child" notification color="success">
+            <Tile className="TFTile" renderAs="article" kind="child" notification color="primary">
                 <div className="content">
                     <Heading>
                         <TFNavbar

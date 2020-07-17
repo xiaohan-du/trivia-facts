@@ -1,8 +1,8 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
 import { Navbar, Button, Dropdown } from 'react-bulma-components';
+import '../../main.scss';
 import './TFNavbar.scss';
-import '../../styles/button.scss';
 
 class TFNavbar extends React.Component {
     constructor(props) {
@@ -36,7 +36,7 @@ class TFNavbar extends React.Component {
                     </label>
                 </Navbar.Brand>
                 <input type="checkbox" id="nav-toggle-state" />
-                <Navbar.Menu >
+                <Navbar.Menu>
                     <Navbar.Container>
                         <Navbar.Item>
                             <Dropdown hoverable>
@@ -48,7 +48,7 @@ class TFNavbar extends React.Component {
                             </Dropdown>
                         </Navbar.Item>
                         <Navbar.Item className="TFBtn__is-primary">
-                            <Button className="is-danger" onClick={this.props.mixCards}>Shuffle</Button>
+                            <Button className="is-light" onClick={this.props.mixCards}>Shuffle</Button>
                         </Navbar.Item>
                     </Navbar.Container>
                 </Navbar.Menu>
