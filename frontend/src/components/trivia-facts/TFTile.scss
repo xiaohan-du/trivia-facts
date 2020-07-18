@@ -2,4 +2,7 @@
 
 .TFTile {
     min-height: 334px;
+    & .navbar-item {
+        background-color: $primary!important;
+    }
 }
