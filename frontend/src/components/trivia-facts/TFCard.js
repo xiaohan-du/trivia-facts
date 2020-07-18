@@ -50,7 +50,7 @@ class TFCard extends React.Component {
                         <Card.Content className="TFCard__content">{this.props.Answer}</Card.Content>
                         <Card.Footer className="TFCard__footer">
                             <Card.Footer.Item>
-                                <Button className="button is-light is-large" onClick={this.flipCardToFront}>Back</Button>
+                                <Button className="is-light is-large" onClick={this.flipCardToFront}>Back</Button>
                             </Card.Footer.Item>
                         </Card.Footer>
                     </div>
