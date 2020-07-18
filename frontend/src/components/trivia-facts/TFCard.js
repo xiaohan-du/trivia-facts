@@ -36,7 +36,7 @@ class TFCard extends React.Component {
                         <Card.Footer className="TFCard__footer">
                             <Card.Footer.Item>
                                 <Button
-                                    className={[this.state.answerBtnShow ? null : 'TFCard__answer-btn__hide', "button is-light is-large"].join(' ')}
+                                    className={[this.state.answerBtnShow ? null : 'TFCard__answer-btn__hide', "is-light is-large"].join(' ')}
                                     onClick={this.flipCardToBack}>
                                     Answer
                                 </Button>
