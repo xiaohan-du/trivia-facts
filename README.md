@@ -23,7 +23,7 @@ In `index.js` use `const pool = require('./awsPool');`.
 
 Run the following command to fetch data from database, start the server and listen on port 4000:
 ```
-node backend/index.js
+nodemon backend/index.js
 ```
 The frontend is built via `create-react-app`, run the following command to start the React application:
 ```
