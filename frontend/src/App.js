@@ -43,7 +43,7 @@ class App extends React.Component {
       response.data.forEach(element => {
         category.push(element.Category)
       })
-      this.setState({ facts: response.data, uniqueCategory: [...new Set(category)] });
+      this.setState({ facts: this.shuffle(response.data), uniqueCategory: [...new Set(category)] });
     });
   }
 
