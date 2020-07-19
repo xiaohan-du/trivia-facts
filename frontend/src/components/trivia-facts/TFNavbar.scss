@@ -1,10 +1,29 @@
 @import "../../main.scss";
 
 .TFNavbar {
+  justify-content: space-between;
   &__logo {
     text-decoration: none !important;
     & img {
       max-height: 100%;
+    }
+  }
+  & .navbar {
+    &-item {
+      background-color: $primary !important;
+      & button {
+        font-size: 1.6rem;
+      }
+    }
+    &-menu {
+      flex-grow: unset;
+    }
+  }
+
+  & #nav-toggle-state {
+    display: none;
+    &:checked ~ .navbar-menu {
+      display: block;
     }
   }
 }
@@ -18,30 +37,32 @@
   }
 }
 
-.navbar {
-  &-item {
-    & button {
-      font-size: 1.6rem;
+@include for-up-to-desktop {
+  .TFNavbar {
+    display: flex;
+    align-items: stretch;
+    & .navbar {
+      &-menu {
+        display: flex;
+        background-color: $primary !important;
+        box-shadow: none;
+      }
+      &-start {
+        display: flex;
+      }
+      &-item {
+        display: flex;
+        align-items: center;
+      }
+      &-burger {
+        display: none;
+      }
     }
   }
 }
 
-#nav-toggle-state {
-  display: none;
-  &:checked ~ .navbar-menu {
-    display: block;
-  }
-}
-
-@include for-phone-and-tablet-portrait {
-  .navbar,
-  .navbar-end,
-  .navbar-menu,
-  .navbar-start {
-    align-items: stretch;
-    display: flex;
-  }
+@include for-up-to-phone {
   .navbar-burger {
-    display: none;
+    display: block;
   }
 }

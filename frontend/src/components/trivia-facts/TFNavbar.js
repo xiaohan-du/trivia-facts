@@ -22,7 +22,7 @@ class TFNavbar extends React.Component {
 
     render() {
         return (
-            <Navbar className={this.props.isFixedTop ? "is-fixed-top" : ""}>
+            <Navbar className={[this.props.isFixedTop ? "is-fixed-top" : "", 'TFNavbar'].join('')}>
                 <Navbar.Brand>
                     {this.props.logo}
                     <label role="button"
