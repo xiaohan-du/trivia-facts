@@ -104,7 +104,7 @@ class App extends React.Component {
             <MainNavbar />
           </Section>
           <Section className="Section__tf">
-            <Box>
+            <Box className="Box__tf">
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
                   <Tile kind="parent" className="Wrapper__TFTile">
