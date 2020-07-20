@@ -64,4 +64,16 @@ body {
       }
     }
   }
+  .Site-under-construction {
+    font-size: 2rem;
+  }
+}
+
+@include for-up-to-extra-small-devices {
+  .Wrapper {
+    &__TFCard {
+      padding-top: 0.325rem;
+      padding-bottom: 0.325rem;
+    }
+  }
 }

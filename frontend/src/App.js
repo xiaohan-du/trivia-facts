@@ -81,7 +81,7 @@ class App extends React.Component {
   renderCard = ({ id, Category, Question, Answer }) => {
     return (
       <div key={id}>
-        <Columns.Column className="is-narrow">
+        <Columns.Column className="is-narrow Wrapper__TFCard">
           <TFCard Category={Category} Question={Question} Answer={Answer} />
         </Columns.Column>
       </div>
