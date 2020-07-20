@@ -8,6 +8,7 @@
       max-height: 100%;
     }
   }
+
   & .dropdown {
     &-item {
       font-size: 1.6rem;
@@ -29,6 +30,17 @@
     }
     &-menu {
       flex-grow: unset;
+    }
+  }
+
+  & #tf-nav-toggle-state {
+    display: none;
+    &:checked ~{
+      & .navbar-menu {
+        display: flex;
+        align-self: flex-end;
+    
+      }
     }
   }
 }
@@ -75,14 +87,5 @@
         display: none;
       }
     }
-  }
-}
-
-#nav-toggle-state {
-  display: none;
-  &:checked ~ .navbar-menu {
-    display: flex;
-    align-self: flex-end;
-
   }
 }

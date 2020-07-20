@@ -29,13 +29,13 @@ class TFNavbar extends React.Component {
                         className="navbar-burger burger"
                         aria-label="menu"
                         aria-expanded="false"
-                        htmlFor="nav-toggle-state">
+                        htmlFor="tf-nav-toggle-state">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </label>
                 </Navbar.Brand>
-                <input type="checkbox" id="nav-toggle-state" />
+                <input type="checkbox" id="tf-nav-toggle-state" />
                 <Navbar.Menu>
                     <Navbar.Container>
                         <Navbar.Item className="TFBtn__is-primary">
