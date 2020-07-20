@@ -89,3 +89,19 @@
     }
   }
 }
+
+@include for-up-to-phone {
+  .TFNavbar {
+    & .navbar {
+      &-menu {
+        width: 100%;
+      }
+      &-start {
+        flex-direction: column;
+      }
+    }
+    & button {
+      min-width: 23.2rem;
+    }
+  }
+}
