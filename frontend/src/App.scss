@@ -1,3 +1,5 @@
+@import "./main.scss";
+
 .App {
   text-align: center;
 }
@@ -17,5 +19,27 @@ body {
 .Section {
   &__navbar {
     padding-bottom: 0;
+  }
+}
+
+@include for-up-to-phone {
+  .Section {
+    &__main {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    &__tf {
+      padding-left: 0;
+      padding-right: 0;
+      padding-top: 2rem;
+    }
+  }
+  .Wrapper {
+    &__TFTile {
+      &.tile {
+        padding: 0;
+        padding-bottom: 1.5rem;
+      }
+    }
   }
 }

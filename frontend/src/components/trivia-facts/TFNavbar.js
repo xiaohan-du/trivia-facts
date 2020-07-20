@@ -22,7 +22,7 @@ class TFNavbar extends React.Component {
 
     render() {
         return (
-            <Navbar className={this.props.isFixedTop ? "is-fixed-top" : ""}>
+            <Navbar className={[this.props.isFixedTop ? "is-fixed-top" : "", 'TFNavbar'].join('')}>
                 <Navbar.Brand>
                     {this.props.logo}
                     <label role="button"
@@ -38,6 +38,9 @@ class TFNavbar extends React.Component {
                 <input type="checkbox" id="nav-toggle-state" />
                 <Navbar.Menu>
                     <Navbar.Container>
+                        <Navbar.Item className="TFBtn__is-primary">
+                            <Button className="is-light" onClick={this.props.mixCards}>Shuffle</Button>
+                        </Navbar.Item>
                         <Navbar.Item>
                             <Dropdown hoverable>
                                 <Dropdown.Item value="item">
@@ -46,9 +49,6 @@ class TFNavbar extends React.Component {
                                 <Dropdown.Divider />
                                 {this.props.uniqueCategory.map(this.renderItem)}
                             </Dropdown>
-                        </Navbar.Item>
-                        <Navbar.Item className="TFBtn__is-primary">
-                            <Button className="is-light" onClick={this.props.mixCards}>Shuffle</Button>
                         </Navbar.Item>
                     </Navbar.Container>
                 </Navbar.Menu>

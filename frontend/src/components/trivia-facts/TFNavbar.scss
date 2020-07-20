@@ -1,27 +1,79 @@
 @import "../../main.scss";
 
 .TFNavbar {
+  justify-content: space-between;
   &__logo {
     text-decoration: none !important;
     & img {
       max-height: 100%;
     }
   }
-}
-
-.dropdown {
-  &-item {
-    font-size: 1.6rem;
-  }
-  &-trigger {
-    display: flex;
-  }
-}
-
-.navbar {
-  &-item {
-    & button {
+  & .dropdown {
+    &-item {
       font-size: 1.6rem;
+    }
+    &-trigger {
+      display: flex;
+    }
+  }
+
+  & .navbar {
+    &-item {
+      background-color: $primary !important;
+      & button {
+        font-size: 1.6rem;
+      }
+    }
+    &-brand {
+      align-items: center;
+    }
+    &-menu {
+      flex-grow: unset;
+    }
+  }
+}
+
+@include for-up-to-desktop {
+  .TFNavbar {
+    display: flex;
+    & .navbar {
+      &-brand {
+        align-content: space-between;
+      }
+      &-menu {
+        display: flex;
+        padding: 0;
+        box-shadow: none;
+        background-color: $primary;
+      }
+      &-item {
+        display: flex;
+        justify-content: flex-end;
+      }
+      &-burger {
+        display: none;
+      }
+      &-start {
+        display: flex;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@include for-up-to-tablet-portrait {
+  .TFNavbar {
+    flex-direction: column;
+    & .navbar {
+      &-brand {
+        width: 100%;
+      }
+      &-burger {
+        display: block;
+      }
+      &-menu {
+        display: none;
+      }
     }
   }
 }
@@ -29,19 +81,8 @@
 #nav-toggle-state {
   display: none;
   &:checked ~ .navbar-menu {
-    display: block;
-  }
-}
-
-@include for-phone-and-tablet-portrait {
-  .navbar,
-  .navbar-end,
-  .navbar-menu,
-  .navbar-start {
-    align-items: stretch;
     display: flex;
-  }
-  .navbar-burger {
-    display: none;
+    align-self: flex-end;
+
   }
 }
