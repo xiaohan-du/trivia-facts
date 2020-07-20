@@ -8,6 +8,7 @@
       max-height: 100%;
     }
   }
+
   & .dropdown {
     &-item {
       font-size: 1.6rem;
@@ -29,6 +30,17 @@
     }
     &-menu {
       flex-grow: unset;
+    }
+  }
+
+  & #tf-nav-toggle-state {
+    display: none;
+    &:checked ~{
+      & .navbar-menu {
+        display: flex;
+        align-self: flex-end;
+    
+      }
     }
   }
 }
@@ -78,11 +90,18 @@
   }
 }
 
-#nav-toggle-state {
-  display: none;
-  &:checked ~ .navbar-menu {
-    display: flex;
-    align-self: flex-end;
-
+@include for-up-to-phone {
+  .TFNavbar {
+    & .navbar {
+      &-menu {
+        width: 100%;
+      }
+      &-start {
+        flex-direction: column;
+      }
+    }
+    & button {
+      min-width: 23.2rem;
+    }
   }
 }

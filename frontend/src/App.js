@@ -81,7 +81,7 @@ class App extends React.Component {
   renderCard = ({ id, Category, Question, Answer }) => {
     return (
       <div key={id}>
-        <Columns.Column className="is-narrow">
+        <Columns.Column className="is-narrow Wrapper__TFCard">
           <TFCard Category={Category} Question={Question} Answer={Answer} />
         </Columns.Column>
       </div>
@@ -103,8 +103,8 @@ class App extends React.Component {
           <Section className="Section__navbar">
             <MainNavbar />
           </Section>
-          <Section className="Section__tf">
-            <Box>
+          <Section className="Section__tiles">
+            <Box className="Box__tf">
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
                   <Tile kind="parent" className="Wrapper__TFTile">
