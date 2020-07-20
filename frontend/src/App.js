@@ -103,13 +103,8 @@ class App extends React.Component {
           <Section className="Section__navbar">
             <MainNavbar />
           </Section>
-<<<<<<< Updated upstream
-          <Section className="Section__tf">
-            <Box className="Box__tf">
-=======
           <Section className="Section__tiles">
-            <Box>
->>>>>>> Stashed changes
+            <Box className="Box__tf">
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
                   <Tile kind="parent" className="Wrapper__TFTile">
