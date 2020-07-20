@@ -108,6 +108,12 @@ class App extends React.Component {
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
                   <Tile kind="parent" className="Wrapper__TFTile">
+                    <Tile renderAs="article" kind="child" notification color="warning">
+                      <Heading>Tiles...</Heading>
+                      <Heading subtitle>Bottom Tile...</Heading>
+                    </Tile>
+                  </Tile>
+                  <Tile kind="parent" className="Wrapper__TFTile">
                     <TFTile showAllCards={this.showAllCards}
                       isShowAllCards={this.state.isShowAllCards}
                       isShowFilteredCards={this.state.isShowFilteredCards}
@@ -118,10 +124,6 @@ class App extends React.Component {
                       renderFilteredFacts={this.renderFilteredFacts}
                       mixCards={this.mixCards}
                     />
-                  </Tile>
-                  <Tile renderAs="article" kind="child" notification color="warning">
-                    <Heading>Tiles...</Heading>
-                    <Heading subtitle>Bottom Tile...</Heading>
                   </Tile>
                 </Tile>
               </Tile>
