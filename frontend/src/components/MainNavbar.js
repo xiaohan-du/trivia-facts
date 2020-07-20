@@ -13,7 +13,7 @@ class MainNavbar extends React.Component {
                     <Navbar.Item className="MainNavbar__logo" renderAs="a" href="#">
                         <img src={mainLogo} alt="main logo" />
                     </Navbar.Item>
-                    {/* <label role="button"
+                    <label role="button"
                         className="navbar-burger burger"
                         aria-label="menu"
                         aria-expanded="false"
@@ -21,9 +21,9 @@ class MainNavbar extends React.Component {
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
-                    </label> */}
+                    </label>
                 </Navbar.Brand>
-                {/* <input type="checkbox" id="nav-toggle-state" /> */}
+                <input type="checkbox" id="nav-toggle-state" />
                 <Navbar.Menu >
                     <Navbar.Container>
                         <Navbar.Item renderAs="a" href="#">
