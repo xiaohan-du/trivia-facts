@@ -20,6 +20,10 @@ body {
   &__navbar {
     padding-bottom: 0;
   }
+  &__tiles {
+    max-width: 144rem;
+    margin: 0 auto;
+  }
 }
 
 .Box {
@@ -50,7 +54,7 @@ body {
       padding-left: 1rem;
       padding-right: 1rem;
     }
-    &__tf {
+    &__tiles {
       padding-left: 0;
       padding-right: 0;
       padding-top: 2rem;
