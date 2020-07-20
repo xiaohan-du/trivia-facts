@@ -8,6 +8,15 @@
       max-height: 100%;
     }
   }
+  & .dropdown {
+    &-item {
+      font-size: 1.6rem;
+    }
+    &-trigger {
+      display: flex;
+    }
+  }
+
   & .navbar {
     &-item {
       background-color: $primary !important;
@@ -15,54 +24,65 @@
         font-size: 1.6rem;
       }
     }
+    &-brand {
+      align-items: center;
+    }
     &-menu {
       flex-grow: unset;
     }
-  }
-
-  & #nav-toggle-state {
-    display: none;
-    &:checked ~ .navbar-menu {
-      display: block;
-    }
-  }
-}
-
-.dropdown {
-  &-item {
-    font-size: 1.6rem;
-  }
-  &-trigger {
-    display: flex;
   }
 }
 
 @include for-up-to-desktop {
   .TFNavbar {
     display: flex;
-    align-items: stretch;
     & .navbar {
+      &-brand {
+        align-content: space-between;
+      }
       &-menu {
         display: flex;
-        background-color: $primary !important;
+        padding: 0;
         box-shadow: none;
-      }
-      &-start {
-        display: flex;
+        background-color: $primary;
       }
       &-item {
         display: flex;
-        align-items: center;
+        justify-content: flex-end;
       }
       &-burger {
+        display: none;
+      }
+      &-start {
+        display: flex;
+        margin: auto;
+      }
+    }
+  }
+}
+
+@include for-up-to-tablet-portrait {
+  .TFNavbar {
+    flex-direction: column;
+    & .navbar {
+      &-brand {
+        width: 100%;
+      }
+      &-burger {
+        display: block;
+      }
+      &-menu {
         display: none;
       }
     }
   }
 }
 
-@include for-up-to-phone {
-  .navbar-burger {
-    display: block;
+#nav-toggle-state {
+  display: none;
+  &:checked ~ .navbar-menu {
+    display: flex;
+    align-self: flex-end;
+
   }
 }

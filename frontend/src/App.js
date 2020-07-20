@@ -99,31 +99,29 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Section className="hero is-full-height-with-navbar">
+        <Section className="Section__main hero is-full-height-with-navbar">
           <Section className="Section__navbar">
             <MainNavbar />
           </Section>
-          <Section>
+          <Section className="Section__tf">
             <Box>
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
-                  <Tile kind="parent" vertical>
-                    <Tile kind="parent">
-                      <TFTile showAllCards={this.showAllCards}
-                        isShowAllCards={this.state.isShowAllCards}
-                        isShowFilteredCards={this.state.isShowFilteredCards}
-                        renderFacts={this.renderFacts}
-                        facts={this.state.facts}
-                        selectedFacts={this.state.selectedFacts}
-                        uniqueCategory={this.state.uniqueCategory}
-                        renderFilteredFacts={this.renderFilteredFacts}
-                        mixCards={this.mixCards}
-                      />
-                    </Tile>
-                    <Tile renderAs="article" kind="child" notification color="warning">
-                      <Heading>Tiles...</Heading>
-                      <Heading subtitle>Bottom Tile...</Heading>
-                    </Tile>
+                  <Tile kind="parent" className="Wrapper__TFTile">
+                    <TFTile showAllCards={this.showAllCards}
+                      isShowAllCards={this.state.isShowAllCards}
+                      isShowFilteredCards={this.state.isShowFilteredCards}
+                      renderFacts={this.renderFacts}
+                      facts={this.state.facts}
+                      selectedFacts={this.state.selectedFacts}
+                      uniqueCategory={this.state.uniqueCategory}
+                      renderFilteredFacts={this.renderFilteredFacts}
+                      mixCards={this.mixCards}
+                    />
+                  </Tile>
+                  <Tile renderAs="article" kind="child" notification color="warning">
+                    <Heading>Tiles...</Heading>
+                    <Heading subtitle>Bottom Tile...</Heading>
                   </Tile>
                 </Tile>
               </Tile>

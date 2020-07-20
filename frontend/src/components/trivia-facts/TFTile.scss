@@ -1,5 +1,7 @@
 @import "../../main.scss";
 
 .TFTile {
-    min-height: 334px;
+    &.notification {
+        padding-right: 1.5rem;
+    }
 }
