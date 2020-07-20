@@ -7,6 +7,10 @@
   border: 1px solid #f1f1f1;
   perspective: 1000px;
   border-radius: 1.5rem;
+  transition: box-shadow 0.1s ease-in-out;
+  &:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  }
 
   &__content {
     height: 50%;
