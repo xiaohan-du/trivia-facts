@@ -1,3 +1,5 @@
+# dependencies
 node_modules/
-backend/awsPool.js
-backend/localPool.js
+
+# api keys and other credentials
+.env
