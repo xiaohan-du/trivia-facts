@@ -2,9 +2,30 @@ import React from 'react';
 
 class WeatherResult extends React.Component {
 
-    render() {
+    unfetchedUI() {
         return (
-            <div>{this.props.weatherFetched ? this.props.weatherData.main.temp : null}</div>
+            <div>Weather not fetched yet</div>
+        )
+    }
+
+    fetchedUI() {
+        return (
+            <div>{this.props.weatherData.main.temp}</div>
+        )
+    }
+    Î
+    render() {
+        let resultUI;
+        if(this.props.weatherFetched){
+            resultUI = this.fetchedUI();
+        }
+        else {
+            resultUI = this.unfetchedUI();
+        }
+        return(
+            <div>
+                {resultUI}
+            </div>
         )
     }
 }
