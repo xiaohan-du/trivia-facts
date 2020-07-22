@@ -2,12 +2,13 @@ import React from 'react';
 
 class FetchWeather extends React.Component {
 
-    /* static async getWeather() {
-        const weatherURL = `http://api.openweathermap.org/data/2.5/weather?q=Cardiff,uk&APPID=${apiConfig.owmKey}`;
-        let response = await fetch(weatherURL)
-        let body = await response.json();
+    static async getWeather(e) {
+        e.preventDefault();
+        const weatherURL = `http://localhost:4000/weather`;
+        let response = await fetch(weatherURL),
+            body = await response.json();
         return body
-    } */
+    }
 
     Weather({ description, city, country, error, temperature }) {
         return (
