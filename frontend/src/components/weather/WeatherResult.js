@@ -4,7 +4,7 @@ class WeatherResult extends React.Component {
 
     unfetchedUI() {
         return (
-            <div>Weather not fetched yet</div>
+            <div>I want 3 nearest cities' weather to be shown here.</div>
         )
     }
 
