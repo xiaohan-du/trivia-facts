@@ -2,6 +2,25 @@ import React from 'react';
 import FetchWeather from '../../functions/FetchWeather'
 
 class WeatherTile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            weatherFetched: false,
+            weatherData: []
+        }
+        this.getWeather = this.getWeather.bind(this);
+    }
+
+    getWeather(e) {
+        e.preventDefault();
+        FetchWeather.getWeather().then(response => {
+            this.setState({
+                weatherData: response,
+                weatherFetched: true
+            })
+            console.log(this.state.weatherData)
+        })
+    }
 
     render() {
         return (
@@ -21,12 +40,12 @@ class WeatherTile extends React.Component {
                             <input className="input" type="text" placeholder="Type city name here" />
                         </div>
                     </div>
+                    <div>{this.state.weatherFetched ? this.state.weatherData.main.temp : null}</div>
                     <div className="field">
                         <div className="control">
                             <button
                                 className="button is-light is-large"
-                                type='submit'
-                                onClick={FetchWeather.getWeather}>Search</button>
+                                onClick={this.getWeather}>Search</button>
                         </div>
                     </div>
                 </form>
