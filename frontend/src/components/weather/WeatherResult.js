@@ -4,16 +4,24 @@ class WeatherResult extends React.Component {
 
     unfetchedUI() {
         return (
-            <div>I want 3 nearest cities' weather to be shown here.</div>
+            <div>
+                <div>If: user allows to determine location - show current location weather</div>
+                <div>Else if: user does not allow to determine location - show London weather</div>
+                <div>Search by location - show city weather</div>
+            </div>
         )
     }
 
     fetchedUI() {
         return (
-            <div>{this.props.weatherData.main.temp}</div>
+            <div>
+                <div><p>City: {this.props.weatherData.name}</p></div>
+                <div><p>Longitude: {this.props.weatherData.coord.lon}; Latitude: {this.props.weatherData.coord.lat}</p></div>
+                <div><p>Temperature: {this.props.weatherData.main.temp} Kelvin</p></div>
+            </div>
         )
     }
-    Î
+    
     render() {
         let resultUI;
         if(this.props.weatherFetched){

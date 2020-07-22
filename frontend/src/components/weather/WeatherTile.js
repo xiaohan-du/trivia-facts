@@ -4,7 +4,7 @@ import WeatherForm from './WeatherForm';
 import WeatherResult from './WeatherResult';
 
 class WeatherTile extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
