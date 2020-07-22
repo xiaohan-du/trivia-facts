@@ -32,9 +32,17 @@ class WeatherTile extends React.Component {
                         <WeatherForm getWeather={this.getWeather} />
                     </div>
                     <div className="column">
-                        <WeatherResult
-                            weatherFetched={this.state.weatherFetched}
-                            weatherData={this.state.weatherData} />
+                        <div className="columns">
+                            <div className="column">
+                                <div>If: user allows to determine location - show current location's weather</div>
+                                <div>Else if: user does not allow to determine location - show London's weather</div>
+                            </div>
+                            <div className="column">
+                                <WeatherResult
+                                    weatherFetched={this.state.weatherFetched}
+                                    weatherData={this.state.weatherData} />
+                            </div>
+                        </div>
                     </div>
                 </div>
 

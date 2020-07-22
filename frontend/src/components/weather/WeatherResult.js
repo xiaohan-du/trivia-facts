@@ -5,9 +5,8 @@ class WeatherResult extends React.Component {
     unfetchedUI() {
         return (
             <div>
-                <div>If: user allows to determine location - show current location weather</div>
-                <div>Else if: user does not allow to determine location - show London weather</div>
                 <div>Search by location - show city weather</div>
+                <div>Click Search to test.</div>
             </div>
         )
     }
