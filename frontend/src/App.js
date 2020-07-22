@@ -1,11 +1,12 @@
 import React from 'react';
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-import { Columns, Section, Tile, Box, Heading } from 'react-bulma-components';
+import { Columns, Section, Tile, Box } from 'react-bulma-components';
 import './App.scss';
-import FetchFacts from './FetchFacts';
+import FetchFacts from './functions/FetchFacts';
+import MainNavbar from './components/MainNavbar';
 import TFCard from './components/trivia-facts/TFCard';
 import TFTile from './components/trivia-facts/TFTile';
-import MainNavbar from './components/MainNavbar';
+import WeatherTile from './components/weather/WeatherTile';
 
 class App extends React.Component {
   constructor(props) {
@@ -107,7 +108,10 @@ class App extends React.Component {
             <Box className="Box__tf">
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
-                  <Tile kind="parent" className="Wrapper__TFTile">
+                  <Tile kind="parent" className="Wrapper__tile">
+                    <WeatherTile />
+                  </Tile>
+                  <Tile kind="parent" className="Wrapper__tile">
                     <TFTile showAllCards={this.showAllCards}
                       isShowAllCards={this.state.isShowAllCards}
                       isShowFilteredCards={this.state.isShowFilteredCards}
@@ -118,10 +122,6 @@ class App extends React.Component {
                       renderFilteredFacts={this.renderFilteredFacts}
                       mixCards={this.mixCards}
                     />
-                  </Tile>
-                  <Tile renderAs="article" kind="child" notification color="warning">
-                    <Heading>Tiles...</Heading>
-                    <Heading subtitle>Bottom Tile...</Heading>
                   </Tile>
                 </Tile>
               </Tile>
