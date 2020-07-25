@@ -20,7 +20,7 @@ class LocationSearchInput extends React.Component {
         window.initMap = this.initGoogleMaps;
         var googleMapsScriptEl = document.createElement('script');
         googleMapsScriptEl.type = 'text/javascript';
-        googleMapsScriptEl.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCHTp-w5m5GgPvSAuwJ9o_d26SEMDpmcnw&amp;libraries=places';
+        googleMapsScriptEl.src = 'https://maps.googleapis.com/maps/api/js?key=APIKey;libraries=places';
 
         document.head.appendChild(googleMapsScriptEl);
     }
