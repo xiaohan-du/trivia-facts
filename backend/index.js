@@ -4,7 +4,7 @@ const app = express();
 const axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
-const url = `http://api.openweathermap.org/data/2.5/weather?q=cardiff,uk&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`;
+const url = `http://api.openweathermap.org/data/2.5/weather?q=cardiff,ukß&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`;
 const SELECT_ALL_FACTS_QUERY = 'SELECT * FROM `trivia-facts`.`trivia-fact`;';
 app.use(cors());
 

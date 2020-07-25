@@ -15,6 +15,7 @@ class WeatherResult extends React.Component {
         return (
             <div>
                 <div><p>City: {this.props.weatherData.name}</p></div>
+                <div><p>Country: {this.props.weatherData.sys.country}</p></div>
                 <div><p>Longitude: {this.props.weatherData.coord.lon}; Latitude: {this.props.weatherData.coord.lat}</p></div>
                 <div><p>Temperature: {this.props.weatherData.main.temp} Kelvin</p></div>
             </div>
