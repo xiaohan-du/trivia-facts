@@ -1,5 +1,6 @@
 import React from 'react';
 import FetchWeather from '../../functions/FetchWeather';
+import FetchPostcode from '../../functions/FetchPostcode';
 import WeatherForm from './WeatherForm';
 import WeatherResult from './WeatherResult';
 
@@ -12,10 +13,19 @@ class WeatherTile extends React.Component {
             weatherData: []
         }
         this.getWeather = this.getWeather.bind(this);
+        this.getPostcode = this.getPostcode.bind(this);
     }
 
-    getWeather(e) {
-        e.preventDefault();
+    getPostcode() {
+        FetchPostcode.getAddress().then(response => {
+            this.setState({
+                postcodeData: response,
+                postcodeFetched: true
+            })
+        })
+    }
+
+    getWeather() {
         FetchWeather.getWeather().then(response => {
             this.setState({
                 weatherData: response,
@@ -29,7 +39,7 @@ class WeatherTile extends React.Component {
             <article className="tile is-child notification is-warning">
                 <div className="columns">
                     <div className="column">
-                        <WeatherForm getWeather={this.getWeather} />
+                        <WeatherForm getWeather={this.getWeather} getPostcode={this.getPostcode}/>
                     </div>
                     <div className="column">
                         <div className="columns">
