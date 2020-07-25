@@ -6,6 +6,10 @@ This is my personal [Express JS](https://expressjs.com/) + [AWS](https://aws.ama
 
 1. Trivia facts tile up and runnning. 
 
+## Working on
+
+UK weather component.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for testing purposes. 
