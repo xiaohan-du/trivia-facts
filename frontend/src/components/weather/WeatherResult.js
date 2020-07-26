@@ -21,19 +21,28 @@ class WeatherResult extends React.Component {
             </div>
         )
     }
-    
+
     render() {
         let resultUI;
-        if(this.props.weatherFetched){
+        if (this.props.weatherFetched) {
             resultUI = this.fetchedUI();
         }
         else {
             resultUI = this.unfetchedUI();
         }
-        return(
-            <div>
-                {resultUI}
+        return (
+            <div className="columns">
+                <div className="column">
+                    <div>If: user allows to determine location - show current location's weather</div>
+                    <div>Else if: user does not allow to determine location - show London's weather</div>
+                </div>
+                <div className="column">
+                    <div>
+                        {resultUI}
+                    </div>
+                </div>
             </div>
+
         )
     }
 }
