@@ -2,11 +2,12 @@ import React from 'react';
 import './WeatherForm.scss';
 
 class WeatherForm extends React.Component {
-    
+
     constructor(props) {
         super(props);
         this.state = {
-            AddressData: [],
+            addressData: [],
+            coordinate: [],
             postcodeInput: '',
             errors: {},
             formIsValid: true
@@ -20,7 +21,19 @@ class WeatherForm extends React.Component {
         let response = await fetch(postcodeAPI);
         await response.json().then(response => {
             this.setState({
-                AddressData: response
+                addressData: response
+            })
+        });
+    }
+
+    async getCity() {
+        const postcodeAPI = `http://api.postcodes.io/postcodes/${this.state.postcodeInput}`;
+
+        let response = await fetch(postcodeAPI);
+        await response.json().then(response => {
+            this.setState({
+                addressData: response,
+                coordinate: [response.result.latitude, response.result.longitude]
             })
         });
     }
@@ -29,7 +42,7 @@ class WeatherForm extends React.Component {
         e.preventDefault();
         if (this.handleValidation()) {
             this.props.getWeather();
-            this.getAddress();
+            this.getCity();
         };
 
     }
