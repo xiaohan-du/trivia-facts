@@ -16,17 +16,7 @@ class WeatherForm extends React.Component {
         this.handleBtnClick = this.handleBtnClick.bind(this);
     }
 
-    async getAddress() {
-        const postcodeAPI = `http://api.postcodes.io/postcodes/${this.state.postcodeInput}`;
-        let response = await fetch(postcodeAPI);
-        await response.json().then(response => {
-            this.setState({
-                addressData: response
-            })
-        });
-    }
-
-    async getCity() {
+    async getCoord() {
         const postcodeAPI = `http://api.postcodes.io/postcodes/${this.state.postcodeInput}`;
 
         let response = await fetch(postcodeAPI);
@@ -34,7 +24,7 @@ class WeatherForm extends React.Component {
             this.setState({
                 addressData: response,
                 coordinate: [response.result.latitude, response.result.longitude]
-            })
+            });
         });
     }
 
@@ -42,9 +32,8 @@ class WeatherForm extends React.Component {
         e.preventDefault();
         if (this.handleValidation()) {
             this.props.getWeather();
-            this.getCity();
+            this.getCoord();
         };
-
     }
 
     handleInputChange(e) {
@@ -68,7 +57,7 @@ class WeatherForm extends React.Component {
 
     render() {
         return (
-            <form>
+            <form method='POST' action='/search-location'>
                 <p className="title">Weather</p>
                 <p className="subtitle">Check UK weather by entering postcode</p>
                 <div>
@@ -86,10 +75,9 @@ class WeatherForm extends React.Component {
                     </div>
                     <div className="field">
                         <div className="control">
-                            <input
-                                type='submit'
+                            <button
                                 className="button is-light is-large"
-                                onClick={this.handleBtnClick} value='Search' />
+                                onClick={this.handleBtnClick}>Search</button>
                         </div>
                     </div>
                 </div>

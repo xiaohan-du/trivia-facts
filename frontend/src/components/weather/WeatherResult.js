@@ -1,12 +1,51 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class WeatherResult extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: true,
+            currentTemp: '',
+            humidity: '',
+            cityNotFound: '',
+            wind: '',
+            currentConditionDescription: '',
+            cityName: ''
+        }
+    }
 
-    unfetchedUI() {
+    async fetchWeather() {
+        let response = await fetch('/weather');
+        await response.json().then(data => {
+            if (data.cod === '404') {
+                this.setState({
+                    isLoading: false,
+                    cityNotFound: '404'
+                })
+            } else {
+                this.setState({
+                    isLoading: false,
+                    currentTemp: Math.round(data.main.temp) + '°',
+                    humidity: data.main.humidity + '%',
+                    wind: Math.round(data.wind.speed) + ' mph',
+                    currentCondition: data.weather[0].main,
+                    currentConditionDescription: data.weather[0].description,
+                    cityName: data.name
+                })
+            }
+        })
+    }
+
+    componentDidMount() {
+        this.fetchWeather();
+    }
+
+    errorUI() {
         return (
             <div>
-                <div>Search by location - show city weather</div>
-                <div>Click Search to test.</div>
+                <p> Error with postcode. </p>
+                <Link to='/'><button>Try Again</button></Link>
             </div>
         )
     }
@@ -14,35 +53,26 @@ class WeatherResult extends React.Component {
     fetchedUI() {
         return (
             <div>
-                <div><p>City: {this.props.weatherData.name}</p></div>
-                <div><p>Country: {this.props.weatherData.sys.country}</p></div>
-                <div><p>Longitude: {this.props.weatherData.coord.lon}; Latitude: {this.props.weatherData.coord.lat}</p></div>
-                <div><p>Temperature: {this.props.weatherData.main.temp} Kelvin</p></div>
+                <div >
+                    <div className='conditionsOverview'>
+                        <p>{this.state.currentTemp}</p>
+                        <p>{this.state.currentConditionDescription}</p>
+                    </div>
+                    <div className='conditionDetails'>
+                        <p>Humidity: {this.state.humidity} </p>
+                        <p>Wind Speed: {this.state.wind} </p>
+                    </div>
+                </div>
+                <h4> Location: {this.state.cityName} </h4>
             </div>
         )
     }
 
     render() {
-        let resultUI;
-        if (this.props.weatherFetched) {
-            resultUI = this.fetchedUI();
-        }
-        else {
-            resultUI = this.unfetchedUI();
-        }
         return (
-            <div className="columns">
-                <div className="column">
-                    <div>If: user allows to determine location - show current location's weather</div>
-                    <div>Else if: user does not allow to determine location - show London's weather</div>
-                </div>
-                <div className="column">
-                    <div>
-                        {resultUI}
-                    </div>
-                </div>
-            </div>
-
+            this.state.cityNotFound === 404
+                ? <div> {this.errorUI()} </div>
+                : <div>{this.fetchedUI()}</div>
         )
     }
 }

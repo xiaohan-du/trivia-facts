@@ -1,7 +1,7 @@
 {
   "name": "trivia-facts",
   "scripts": {
-    "start": "node backend/index.js"
+    "start": "node backend/server/server.js"
   },
   "dependencies": {
     "aws-sdk": "latest",
