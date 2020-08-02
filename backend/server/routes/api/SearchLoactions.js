@@ -4,27 +4,45 @@ dotenv.config();
 
 module.exports = (app) => {
 
+    let apiUrl;
+
     app.get('/search-location', (req, res) => {
         res.send('This is the search location page')
     });
 
-    app.post('/search-location', (req, res) => {
+    app.listen(80, function () {
+        console.log('search location app listening on port 80');
+    });
 
-        let latitude, longitude,
-            baseUrl = `http://api.openweathermap.org/data/2.5/weather?`,
+    app.post('/search-location', (req, res) => {
+        let baseUrl = `http://api.openweathermap.org/data/2.5/weather?`,
             apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
-            coordinates = `lat=` + latitude + `&lon=` + longitude,
-            /* coordinates = `lat=` + `51.5842` + `&lon=` + `-2.9977`, */
-            apiUrl = baseUrl + coordinates + apiKey;
+            coordinates = `lat=` + req.body.latitude + `&lon=` + req.body.longitude;
+        apiUrl = baseUrl + coordinates + apiKey;
+        console.log(apiUrl)
         axios.get(apiUrl)
             .then(response => {
+                console.log(response.data);
+                console.log('------------------- search location');
                 res.json(response.data);
-                console.log(response);
             })
             .catch(error => {
-                res.redirect('/error');
                 console.log(error);
-                console.log('search location error')
+
             });
     });
+
+    app.get('/weather', (req, res) => {
+        axios.get(apiUrl)
+            .then(response => {
+                console.log(response.data);
+                console.log('------------------- weather');
+                res.json(response.data);
+            })
+            .catch(error => {
+                console.log(error);
+                console.log('search location error');
+            });
+    });
+
 }
