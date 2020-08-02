@@ -1,5 +1,4 @@
 import React from 'react';
-import FetchWeather from '../../functions/FetchWeather';
 import WeatherResult from './WeatherResult';
 import axios from 'axios';
 
@@ -9,7 +8,6 @@ class WeatherTile extends React.Component {
         super(props);
         this.state = {
             weatherFetched: false,
-            /* weatherData: [], */
             addressData: [],
             coordinate: [],
             postcodeInput: '',
@@ -17,24 +15,18 @@ class WeatherTile extends React.Component {
             formIsValid: true,
             displayResult: false
         }
-        /* this.getWeather = this.getWeather.bind(this); */
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleBtnClick = this.handleBtnClick.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    /* getWeather() {
-        FetchWeather.getWeather().then(response => {
-            this.setState({
-                weatherData: response,
-                weatherFetched: true
-            })
-        })
-    } */
-
     sendToNode() {
-        axios.post('http://localhost:4000/search-location', {
-            coord: this.state.coordinate
-        })
+        
+        let coord = {
+            longitude: 50,
+            latitude: -2.1
+        }
+
+        axios.post('http://localhost:4000/search-location', coord)
             .then((response) => {
                 console.log(response);
                 this.setState({
@@ -55,15 +47,12 @@ class WeatherTile extends React.Component {
                 coordinate: [response.result.latitude, response.result.longitude]
             });
         });
-        debugger;
-
     }
 
-    handleBtnClick(e) {
+    handleSubmit(e) {
         e.preventDefault();
         if (this.handleValidation()) {
             this.getCoord();
-            /* this.getWeather(); */
             this.sendToNode();
         };
     }
@@ -90,7 +79,7 @@ class WeatherTile extends React.Component {
     render() {
         return (
             <article className="tile is-child notification is-warning">
-                <form method='POST' action='/search-location'>
+                <form onSubmit={this.handleSubmit}>
                     <p className="title">Weather</p>
                     <p className="subtitle">Check UK weather by entering postcode</p>
                     <div>
@@ -111,7 +100,7 @@ class WeatherTile extends React.Component {
                                 <input
                                     type='submit'
                                     className="button is-light is-large"
-                                    onClick={this.handleBtnClick} value='Search' />
+                                    value='Search' />
                             </div>
                         </div>
                     </div>
