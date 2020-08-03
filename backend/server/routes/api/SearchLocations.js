@@ -15,15 +15,15 @@ module.exports = (app) => {
     });
 
     app.post('/search-location', (req, res) => {
+        console.log(req.body)
+        let coord = req.body;
         let baseUrl = `http://api.openweathermap.org/data/2.5/weather?`,
             apiKey = `&appid=${process.env.REACT_APP_WEATHER_API_KEY}`,
-            coordinates = `lat=` + req.body.latitude + `&lon=` + req.body.longitude;
+            coordinates = `lat=` + coord.latitude + `&lon=` + coord.longitude;
         apiUrl = baseUrl + coordinates + apiKey;
         console.log(apiUrl)
         axios.get(apiUrl)
             .then(response => {
-                console.log(response.data);
-                console.log('------------------- search location');
                 res.json(response.data);
             })
             .catch(error => {
@@ -35,8 +35,6 @@ module.exports = (app) => {
     app.get('/weather', (req, res) => {
         axios.get(apiUrl)
             .then(response => {
-                console.log(response.data);
-                console.log('------------------- weather');
                 res.json(response.data);
             })
             .catch(error => {
