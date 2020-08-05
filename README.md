@@ -18,16 +18,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 #### Local database
 
-Create local SQL schema trivia-facts and table trivia-fact, import backend/trivia-fact-50 or trivia-fact-200 depending on the facts size you want, then in `index.js` use `const pool = require('./localPool');`.
+Create local SQL schema trivia-facts and table trivia-fact, import backend/trivia-fact-50 or trivia-fact-200 depending on the facts size you want, then in `/backend/server/server.js` use `const pool = require('../localPool');`.
 
 #### Amazon Web Services Realtional Database Service (RDS)
-In `index.js` use `const pool = require('./awsPool');`.
+In `backend/server/server.js` use `const pool = require('../awsPool');`.
 
 ### Run
 
 Run the following command to fetch data from database, start the server and listen on port 4000:
 ```
-nodemon backend/index.js
+nodemon backend/server/server.js
 ```
 The frontend is built via `create-react-app`, run the following command to start the React application:
 ```
