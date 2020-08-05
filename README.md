@@ -9,7 +9,7 @@ This is my personal [Express JS](https://expressjs.com/) + [AWS](https://aws.ama
 
 ## Working on
 
-UK weather component.
+UK weather component error handling
 
 ## Getting Started
 
