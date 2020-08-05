@@ -1,6 +1,6 @@
 # Trivia-facts (Work in progress)
 
-This is my personal [Express JS](https://expressjs.com/) + [AWS](https://aws.amazon.com/) (backend) + [React JS](https://reactjs.org/) (frontend) + [react-bulma-components](https://react-bulma.dev/en/) (UI) project, aiming to provide a varieties of informations to public.
+This is my personal [Express JS](https://expressjs.com/) + [AWS](https://aws.amazon.com/) (backend) + [React JS](https://reactjs.org/) (frontend) + [react-bulma-components](https://react-bulma.dev/en/) (UI) project, aiming to train myself in React + Node full stack application and provide a varieties of informations to public.
 
 ## Current progress
 
