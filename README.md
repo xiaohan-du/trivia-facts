@@ -5,6 +5,7 @@ This is my personal [Express JS](https://expressjs.com/) + [AWS](https://aws.ama
 ## Current progress
 
 1. Trivia facts tile up and runnning. 
+2. Unstyled weather tile up and running, UK weather can be searched.
 
 ## Working on
 
