@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class WeatherResult extends React.Component {
     constructor(props) {
@@ -8,7 +7,6 @@ class WeatherResult extends React.Component {
             isLoading: true,
             currentTemp: '',
             humidity: '',
-            cityNotFound: '',
             wind: '',
             currentConditionDescription: '',
             cityName: '',
@@ -22,40 +20,25 @@ class WeatherResult extends React.Component {
     async fetchWeather() {
         let response = await fetch('http://localhost:4000/weather');
         await response.json().then(data => {
-            if (data.cod === '404') {
-                this.setState({
-                    isLoading: false,
-                    cityNotFound: '404'
-                })
-            } else {
-                this.setState({
-                    isLoading: false,
-                    currentTemp: Math.round(data.main.temp - 273.15) + '°C',
-                    humidity: data.main.humidity + '%',
-                    wind: Math.round(data.wind.speed) + ' mph',
-                    currentCondition: data.weather[0].main,
-                    currentConditionDescription: data.weather[0].description,
-                    cityName: data.name,
-                    longitude: data.coord.lon,
-                    latitude: data.coord.lat,
-                    sunrise: data.sys.sunrise,
-                    sunset: data.sys.sunset
-                })
-            }
+
+            this.setState({
+                isLoading: false,
+                currentTemp: Math.round(data.main.temp - 273.15) + '°C',
+                humidity: data.main.humidity + '%',
+                wind: Math.round(data.wind.speed) + ' mph',
+                currentCondition: data.weather[0].main,
+                currentConditionDescription: data.weather[0].description,
+                cityName: data.name,
+                longitude: data.coord.lon,
+                latitude: data.coord.lat,
+                sunrise: data.sys.sunrise,
+                sunset: data.sys.sunset
+            })
         })
-    }
+    };
 
     componentDidMount() {
         this.fetchWeather();
-    }
-
-    errorUI() {
-        return (
-            <div>
-                <p> Error with postcode. </p>
-                <Link to='/'><button>Try Again</button></Link>
-            </div>
-        )
     }
 
     convertUnixTime(unixTime) {
@@ -99,9 +82,7 @@ class WeatherResult extends React.Component {
 
     render() {
         return (
-            this.state.cityNotFound === 404
-                ? <div>{this.errorUI()}</div>
-                : <div>{this.fetchedUI()}</div>
+            this.fetchedUI()
         )
     }
 }

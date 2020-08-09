@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+if (typeof window !== 'undefined') {
+  window.React = React;
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
