@@ -1,4 +1,6 @@
 import React from 'react';
+import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class WeatherResult extends React.Component {
     constructor(props) {
@@ -13,14 +15,14 @@ class WeatherResult extends React.Component {
             longitude: '',
             latitude: '',
             sunrise: '',
-            sunset: ''
+            sunset: '',
+            icon: ''
         }
     }
 
     async fetchWeather() {
         let response = await fetch('http://localhost:4000/weather');
         await response.json().then(data => {
-
             this.setState({
                 isLoading: false,
                 currentTemp: Math.round(data.main.temp - 273.15) + '°C',
@@ -32,7 +34,8 @@ class WeatherResult extends React.Component {
                 longitude: data.coord.lon,
                 latitude: data.coord.lat,
                 sunrise: data.sys.sunrise,
-                sunset: data.sys.sunset
+                sunset: data.sys.sunset,
+                icon: data.weather[0].icon
             })
         })
     };
@@ -50,39 +53,50 @@ class WeatherResult extends React.Component {
         return formattedTime;
     }
 
-    fetchedUI() {
+    resultUI() {
         return (
-            <div>
-                <div className='columns'>
-                    <div className='column'>
-                        <p>Current temperature: </p>
-                        <p>Description: </p>
-                        <p>Humidity: </p>
-                        <p>Wind Speed: </p>
-                        <p>Location: </p>
-                        <p>Coordinates: </p>
-                        <p>Sunrise: </p>
-                        <p>Sunset: </p>
-                    </div>
-
-                    <div className='column'>
-                        <p>{this.state.currentTemp}</p>
-                        <p>{this.state.currentConditionDescription}</p>
-                        <p>{this.state.humidity}</p>
-                        <p>{this.state.wind}</p>
-                        <p>{this.state.cityName}</p>
-                        <p>{this.state.latitude} (lat), {this.state.longitude} (lon)</p>
-                        <p>{this.convertUnixTime(this.state.sunrise)}</p>
-                        <p>{this.convertUnixTime(this.state.sunset)}</p>
+            <div className="card">
+                <div className="card-content">
+                    <div className='columns'>
+                        <div className='column has-text-centered'>
+                            <div className='is-size-1'>
+                                {this.state.cityName}
+                            </div>
+                            <div className='columns'>
+                                <div className='column'>
+                                    {this.convertUnixTime(this.state.sunrise)}
+                                    
+                                    <div>
+                                        <FontAwesomeIcon icon={faTint} />
+                                    </div>
+                                    {this.state.humidity}
+                                </div>
+                                <div className='column'>
+                                    {this.convertUnixTime(this.state.sunset)}
+                                    <div>
+                                        <FontAwesomeIcon icon={faWind} />
+                                    </div>
+                                    {this.state.wind}
+                                </div>
+                            </div>
+                        </div>
+                        <div className='column has-text-centered'>
+                            <div className='is-size-1'>
+                                {this.state.currentTemp}
+                            </div>
+                            <div>
+                                {this.state.currentConditionDescription}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div >
+            </div>
         )
     }
 
     render() {
         return (
-            this.fetchedUI()
+            this.resultUI()
         )
     }
 }
