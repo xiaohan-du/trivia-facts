@@ -17,13 +17,12 @@ describe('Test weather form', () => {
 
     it('should call handleSubmit function on form submission', () => {
         const onSubmitFn = jest.fn();
-        const wrapper = shallow(<WeatherForm onSubmit={onSubmitFn} />);
+        const wrapper = shallow(<WeatherForm handleSubmit={onSubmitFn} />);
 
 
         const form = wrapper.find('form');
         form.simulate('submit');
-        /* expect(onSubmitFn).toHaveBeenCalledTimes(1); */
-
+        expect(onSubmitFn).toHaveBeenCalledTimes(1);
     });
     
 });
