@@ -5,11 +5,11 @@ This is my personal [Express JS](https://expressjs.com/) + [AWS](https://aws.ama
 ## Current progress
 
 1. Trivia facts tile up and runnning. 
-2. Unstyled weather tile up and running, UK weather can be searched, error handling finished
+2. UK weather app with basic styling.
 
 ## Working on
 
-UK weather component styling (show weather icon)
+A more modernish UI for UK weather app.
 
 ## Getting Started
 
