@@ -82,7 +82,7 @@ class WeatherTile extends React.Component {
 
     render() {
         return (
-            <article className="tile is-child notification is-warning">
+            <article className="tile TFTile is-child notification is-success">
                 <div className='columns'>
                     <div className="column">
                         <WeatherForm
@@ -91,7 +91,7 @@ class WeatherTile extends React.Component {
                             error={this.state.error} />
                     </div>
                     <div className="column">
-                        {this.state.displayResult ? <WeatherResult /> : null}
+                        {this.state.displayResult ? <WeatherResult displayResult={this.state.displayResult}/> : null}
                     </div>
                 </div>
             </article>
