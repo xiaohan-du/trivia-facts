@@ -5,7 +5,7 @@ import { ReactComponent as Sunrise } from '../../image/icons/sunrise.svg';
 import { ReactComponent as Sunset } from '../../image/icons/sunset.svg';
 import './WeatherCard.scss';
 
-class WeatherResult extends React.Component {
+class WeatherCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -120,4 +120,4 @@ class WeatherResult extends React.Component {
     }
 }
 
-export default WeatherResult;
+export default WeatherCard;
