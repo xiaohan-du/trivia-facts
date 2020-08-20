@@ -3,9 +3,9 @@ import { faWind, faTint } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ReactComponent as Sunrise } from '../../image/icons/sunrise.svg';
 import { ReactComponent as Sunset } from '../../image/icons/sunset.svg';
-import './WeatherResult.scss';
+import './WeatherCard.scss';
 
-class WeatherResult extends React.Component {
+class WeatherCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -66,17 +66,17 @@ class WeatherResult extends React.Component {
 
     resultUI() {
         return (
-            <div className="card TFCard">
-                <div className="card-content WeatherResult__content">
-                    <div className='columns WeatherResult__content__columns'>
+            <div className={"card WeatherCard " + (this.props.displayResult ? 'WeatherCard__transition' : null)}>
+                <div className="card-content WeatherCard__content">
+                    <div className='columns is-mobile WeatherCard__content__columns'>
                         <div className='column has-text-centered'>
-                            <div className='is-size-1 WeatherResult__content__city'>
+                            <div className='is-size-1 WeatherCard__content__city'>
                                 {this.state.cityName}
                             </div>
-                            <div className='columns'>
+                            <div className='columns is-mobile'>
                                 <div className='column'>
                                     <div>
-                                        <Sunrise className='WeatherResult__icon' />
+                                        <Sunrise className='WeatherCard__icon' />
                                     </div>
                                     {this.convertUnixTime(this.state.sunrise)}
                                     <div>
@@ -86,7 +86,7 @@ class WeatherResult extends React.Component {
                                 </div>
                                 <div className='column'>
                                     <div>
-                                        <Sunset className='WeatherResult__icon' />
+                                        <Sunset className='WeatherCard__icon' />
                                     </div>
                                     {this.convertUnixTime(this.state.sunset)}
                                     <div>
@@ -97,11 +97,11 @@ class WeatherResult extends React.Component {
                             </div>
                         </div>
                         <div className='column has-text-centered'>
-                            <div className='WeatherResult__temp'>
+                            <div className='WeatherCard__temp'>
                                 {this.state.currentTemp}
                             </div>
                             <div>
-                                <img className='WeatherResult__desc__img' alt='weather icon' src={this.state.iconUrl}></img>
+                                <img className='WeatherCard__desc__img' alt='weather icon' src={this.state.iconUrl}></img>
                                 <div>
                                     {this.state.currentConditionDescription}
                                 </div>
@@ -120,4 +120,4 @@ class WeatherResult extends React.Component {
     }
 }
 
-export default WeatherResult;
+export default WeatherCard;
