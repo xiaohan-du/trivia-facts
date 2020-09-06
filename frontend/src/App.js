@@ -7,6 +7,7 @@ import MainNavbar from './components/MainNavbar';
 import TFCard from './components/trivia-facts/TFCard';
 import TFTile from './components/trivia-facts/TFTile';
 import WeatherTile from './components/weather/WeatherTile';
+import CovidTile from './components/covid/CovidTile';
 
 class App extends React.Component {
   constructor(props) {
@@ -108,6 +109,9 @@ class App extends React.Component {
             <Box className="Box__tf">
               <Tile kind="ancestor">
                 <Tile size={12} vertical>
+                <Tile kind="parent" className="Wrapper__tile">
+                    <CovidTile />
+                  </Tile>
                   <Tile kind="parent" className="Wrapper__tile">
                     <WeatherTile />
                   </Tile>
