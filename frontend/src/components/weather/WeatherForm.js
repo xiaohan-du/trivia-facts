@@ -8,7 +8,6 @@ class WeatherForm extends React.Component {
             <div className="card WeatherCard">
                 <div className="card-content WeatherCard__content">
                     <form data-testid="form" onSubmit={this.props.handleSubmit}>
-                        <p className="title">Weather</p>
                         <p className="subtitle">Check UK weather by entering postcode</p>
                         <div>
                             <div className="field">

@@ -76,13 +76,13 @@ class WeatherTile extends React.Component {
 
     handleValidation() {
         let regexConst = new RegExp('^([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([AZa-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))[0-9][A-Za-z]{2})$');
-        console.log(regexConst.test(this.state.postcodeInput));
         return regexConst.test(this.state.postcodeInput);
     }
 
     render() {
         return (
             <article className="tile TFTile is-child notification is-success">
+                <h1 className='title is-1'>Weather</h1>
                 <div className='columns'>
                     <div className="column">
                         <WeatherForm
