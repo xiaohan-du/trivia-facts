@@ -83,6 +83,7 @@ class WeatherTile extends React.Component {
     render() {
         return (
             <article className="tile TFTile is-child notification is-success">
+                <h1 className='title is-1'>Weather</h1>
                 <div className='columns'>
                     <div className="column">
                         <WeatherForm
